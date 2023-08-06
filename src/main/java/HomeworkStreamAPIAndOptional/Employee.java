@@ -1,15 +1,19 @@
 package HomeworkStreamAPIAndOptional;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 public class Employee {
 
-    private final String firstName;
+    @JsonProperty("firstName")
+    private String firstName;
+    @JsonProperty("lastName")
     private final String lastName;
     private final int departmentEmployee;
-    private final int salaryEmployee;
+    private final double salaryEmployee;
 
-    public Employee(String firstName, String lastName, int departmentEmployee, int salaryEmployee) {
+    public Employee(String firstName, String lastName, int departmentEmployee, double salaryEmployee) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.departmentEmployee = departmentEmployee;
@@ -20,6 +24,10 @@ public class Employee {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
     }
@@ -28,12 +36,8 @@ public class Employee {
         return departmentEmployee;
     }
 
-    public int getSalaryEmployee() {
+    public double getSalaryEmployee() {
         return salaryEmployee;
-    }
-
-    public String getFullName() {
-        return firstName + " " + lastName;
     }
 
     @Override
@@ -41,7 +45,7 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return departmentEmployee == employee.departmentEmployee && salaryEmployee == employee.salaryEmployee && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
+        return departmentEmployee == employee.departmentEmployee && Double.compare(employee.salaryEmployee, salaryEmployee) == 0 && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
     }
 
     @Override

@@ -1,6 +1,6 @@
-package HomeworkStreamAPIAndOptional;
+package HomeworkStreamAPIAndOptional.Exception;
 
-public class EmployeeAlreadyAddedException extends RuntimeException{
+public class EmployeeAlreadyAddedException extends RuntimeException {
 
     public EmployeeAlreadyAddedException() {
     }

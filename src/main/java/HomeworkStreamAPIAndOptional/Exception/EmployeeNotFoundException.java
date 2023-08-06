@@ -1,4 +1,4 @@
-package HomeworkStreamAPIAndOptional;
+package HomeworkStreamAPIAndOptional.Exception;
 
 public class EmployeeNotFoundException extends RuntimeException{
 

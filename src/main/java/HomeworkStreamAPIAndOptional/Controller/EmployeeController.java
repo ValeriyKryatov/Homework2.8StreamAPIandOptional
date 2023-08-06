@@ -1,5 +1,7 @@
-package HomeworkStreamAPIAndOptional;
+package HomeworkStreamAPIAndOptional.Controller;
 
+import HomeworkStreamAPIAndOptional.Employee;
+import HomeworkStreamAPIAndOptional.Service.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,21 +19,23 @@ public class EmployeeController {
     }
 
     @GetMapping("/add")
-    public Employee add(@RequestParam String firstName,
-                        @RequestParam String lastName) {
-        return employeeService.add(firstName, lastName);
+    public Employee add(@RequestParam("firstName") String firstName,
+                        @RequestParam("lastName") String lastName,
+                        @RequestParam("departmentId") int departmentEmployee,
+                        @RequestParam double salaryEmployee) {
+        return employeeService.add(firstName, lastName, departmentEmployee, salaryEmployee);
 
     }
 
     @GetMapping("/remove")
-    public Employee remove(@RequestParam String firstName,
-                           @RequestParam String lastName) {
+    public Employee remove(@RequestParam("firstName") String firstName,
+                           @RequestParam("lastName") String lastName) {
         return employeeService.remove(firstName, lastName);
     }
 
     @GetMapping("/find")
-    public Employee find(@RequestParam String firstName,
-                         @RequestParam String lastName) {
+    public Employee find(@RequestParam("firstName") String firstName,
+                         @RequestParam("lastName") String lastName) {
         return employeeService.find(firstName, lastName);
     }
 
